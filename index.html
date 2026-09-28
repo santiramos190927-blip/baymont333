@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B&M District | Urban Wear</title>
+<style>
+:root {
+  --bg:#030303;
+  --surface:#090909;
+  --surface2:#101010;
+  --line:#292929;
+  --gold:#ffbf1f;
+  --gold2:#d88900;
+  --white:#f5f5f5;
+  --muted:#a8a8a8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}
+a{text-decoration:none;color:inherit}
+.page{max-width:1500px;margin:auto;background:#050505;box-shadow:0 0 70px #000}
+/* NAV */
+nav{
+height:74px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;
+background:#050505;border-bottom:1px solid #181818;position:sticky;top:0;z-index:100;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:58px;height:58px;border-radius:50%;object-fit:cover}
+.brand-text{font-size:.7rem;letter-spacing:3px;color:#ddd}
+.menu{display:flex;gap:34px;align-items:center}
+.menu a{font-size:.74rem;letter-spacing:1.2px;font-weight:bold;color:#d4d4d4;padding:28px 0;position:relative}
+.menu a.active,.menu a:hover{color:var(--gold)}
+.menu a.active:after{content:"";position:absolute;height:2px;background:var(--gold);left:0;right:0;bottom:13px;box-shadow:0 0 12px var(--gold)}
+.icons{display:flex;gap:14px;color:#eee;font-size:1.1rem}
+/* HERO */
+.hero{
+position:relative;min-height:560px;display:grid;grid-template-columns:1fr 1.15fr 1fr;
+overflow:hidden;border-bottom:1px solid rgba(255,191,31,.32);
+background:
+radial-gradient(circle at 50% 44%,rgba(255,178,0,.18),transparent 26%),
+linear-gradient(90deg,#070707,#101010 50%,#070707);
+}
+.hero:before,.hero:after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;border:1px solid rgba(255,191,31,.18);filter:blur(.2px)}
+.hero:before{left:-210px;bottom:-180px;box-shadow:0 0 70px rgba(255,191,31,.1)}
+.hero:after{right:-220px;top:-180px;box-shadow:0 0 70px rgba(255,191,31,.1)}
+.hero-side{position:relative;z-index:2;padding:55px 8%;display:flex;flex-direction:column;justify-content:center}
+.left-title{font-size:clamp(2rem,4vw,4.4rem);font-weight:900;font-style:italic;line-height:.85;letter-spacing:-2px}
+.left-title span{display:block;color:var(--gold);font-size:.72em}
+.hero-side p{margin-top:20px;color:#c9c9c9;font-size:.76rem;line-height:1.65;letter-spacing:.7px;max-width:270px}
+.cta{margin-top:23px;display:inline-flex;align-items:center;justify-content:center;width:165px;padding:13px 15px;border:1px solid var(--gold);border-radius:30px;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:1px;box-shadow:0 0 18px rgba(255,191,31,.16)}
+.cta:hover{background:var(--gold);color:#111}
+.hero-center{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;text-align:center}
+.gold-ring{width:clamp(290px,34vw,470px);aspect-ratio:1/1;border-radius:50%;border:2px solid rgba(255,191,31,.9);display:flex;align-items:center;justify-content:center;position:relative;overflow:visible;background:radial-gradient(circle at 50% 42%,#171717 0%,#090909 66%,#030303 100%);box-shadow:0 0 34px rgba(255,191,31,.28),inset 0 0 35px rgba(255,191,31,.09);padding:clamp(18px,3vw,34px)}
+.gold-ring:before{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.17);border-radius:50%}
+.gold-ring:after{content:"✦";position:absolute;top:-16px;color:var(--gold);font-size:2rem;text-shadow:0 0 20px var(--gold)}
+.hero-logo{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;border-radius:50%;filter:drop-shadow(0 8px 18px rgba(0,0,0,.45));image-rendering:auto;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.hero-right{align-items:flex-end;text-align:right}
+.hero-right .mini-logo{width:110px;border-radius:50%;opacity:.95;margin-bottom:14px}
+.hero-right h3{font-size:1.1rem;font-style:italic;letter-spacing:1px}
+.hero-right h3 span{color:var(--gold)}
+.hero-right .crown{color:var(--gold);font-size:2.5rem;margin-bottom:8px}
+/* CATEGORY CARDS */
+.category-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:18px 3%;background:#070707}
+.category{
+height:170px;position:relative;overflow:hidden;border:1px solid rgba(255,191,31,.5);
+background:
+radial-gradient(circle at 80% 10%,rgba(255,191,31,.2),transparent 25%),
+linear-gradient(145deg,#1b1b1b,#060606 72%);
+padding:18px;display:flex;flex-direction:column;justify-content:flex-end;
+box-shadow:inset 0 0 30px rgba(255,191,31,.035),0 0 12px rgba(255,191,31,.06);
+transition:.25s;
+}
+.category:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(255,191,31,.18)}
+.category .watermark{position:absolute;right:13px;top:4px;font-size:4rem;color:rgba(255,255,255,.06);font-weight:900}
+.category .cat-icon{font-size:2.2rem;margin-bottom:10px;filter:drop-shadow(0 0 10px rgba(255,191,31,.2))}
+.category b{font-size:1rem;letter-spacing:.8px}
+.category small{margin-top:8px;color:#ddd;font-size:.7rem}
+.category small span{color:var(--gold)}
+/* HEADINGS */
+section{padding:70px 5%}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.section-title{font-size:clamp(1.9rem,3vw,3.3rem);font-style:italic;font-weight:900;line-height:.9}
+.section-title span{color:var(--gold)}
+.subtitle{color:#bcbcbc;font-size:.74rem;letter-spacing:1px;margin-top:9px}
+.see-all{font-size:.7rem;letter-spacing:1.3px;color:#ddd} .see-all span{color:var(--gold);font-size:1.2rem}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:25px}
+.filter{background:#0b0b0b;border:1px solid #292929;color:#aaa;padding:9px 15px;border-radius:20px;font-size:.72rem;cursor:pointer}
+.filter.active,.filter:hover{color:var(--gold);border-color:var(--gold)}
+/* PRODUCTS */
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.product{background:#090909;border:1px solid #222;border-radius:7px;overflow:hidden;transition:.25s}
+.product:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 8px 30px rgba(255,191,31,.1)}
+.product-img{
+height:auto;aspect-ratio:3/4;position:relative;display:flex;align-items:center;justify-content:center;
+background:
+radial-gradient(circle at 70% 15%,rgba(255,191,31,.16),transparent 26%),
+linear-gradient(145deg,#252525,#0a0a0a);
+font-size:5.5rem;overflow:hidden;
+}
+.product-img:before{content:"B&M";position:absolute;font-size:5rem;font-style:italic;font-weight:900;color:rgba(255,255,255,.035);transform:rotate(-10deg)}
+.product-img .shine{position:absolute;width:160%;height:30px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:rotate(-30deg);top:25%}
+.product-photo{padding:0;background:#090909;cursor:zoom-in}.product-photo:before{display:none}.product-photo img{width:100%;height:100%;object-fit:contain;display:block}.zoom-hint{position:absolute;right:10px;bottom:10px;padding:7px 10px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.7);color:#fff;border-radius:20px;font-size:.62rem;letter-spacing:.6px;opacity:.9;z-index:2}.product-photo:hover .zoom-hint{color:var(--gold);border-color:var(--gold)}.sizes{font-size:.66rem;color:#aaa;letter-spacing:.7px;margin:-5px 0 12px}
+.product-info{padding:15px}
+.product-info h3{font-size:.86rem;font-weight:600;margin-bottom:7px}
+.price{font-size:.9rem;color:var(--gold);margin-bottom:14px}
+.wa-btn{display:block;text-align:center;padding:11px;border:1px solid var(--gold);border-radius:24px;font-size:.67rem;font-weight:bold;letter-spacing:.6px}
+.wa-btn:hover{background:var(--gold);color:#111}
+/* PRODUCT IMAGE LIGHTBOX */
+.image-modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(5px)}
+.image-modal.open{display:flex}.modal-image-wrap{max-width:96vw;max-height:92vh;display:flex;align-items:center;justify-content:center}.image-modal img{max-width:min(96vw,1100px);max-height:92vh;width:auto;height:auto;object-fit:contain;border:1px solid #333;box-shadow:0 0 60px rgba(0,0,0,.8);border-radius:6px}.image-modal .close-modal{position:absolute;top:18px;right:22px;width:44px;height:44px;border:1px solid #555;border-radius:50%;background:#111;color:#fff;font-size:28px;cursor:pointer}.image-modal .close-modal:hover{color:var(--gold);border-color:var(--gold)}body.modal-open{overflow:hidden}.product-photo:focus{outline:2px solid var(--gold);outline-offset:-2px}
+/* SECONDARY FEATURE CARDS */
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.feature-card{
+height:260px;border:1px solid #292929;padding:22px;position:relative;overflow:hidden;
+display:flex;flex-direction:column;justify-content:flex-end;
+background:
+radial-gradient(circle at 80% 15%,rgba(255,191,31,.15),transparent 24%),
+linear-gradient(145deg,#1b1b1b,#050505);
+}
+.feature-card .feature-icon{position:absolute;right:22px;top:25px;font-size:4rem;opacity:.8}
+.feature-card h3{font-size:1.2rem} .feature-card p{font-size:.7rem;color:#aaa;margin:7px 0 15px;letter-spacing:.7px}
+.feature-card a{color:var(--gold);font-size:.72rem;font-weight:bold}
+.follow{border-color:rgba(255,191,31,.55);text-align:center;align-items:center;justify-content:center}
+.follow .follow-title{font-size:1.7rem;font-style:italic;line-height:1} .follow p{max-width:220px}
+.follow-icons{font-size:2rem;color:#fff;letter-spacing:9px;margin-top:10px}
+/* BENEFITS */
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #202020;border-bottom:1px solid #202020;background:#070707}
+.benefit{padding:22px 10px;display:flex;justify-content:center;align-items:center;gap:12px;font-size:.7rem;letter-spacing:.6px;color:#ddd}
+.benefit .bicon{font-size:1.7rem;color:var(--gold)}
+/* FOOTER */
+footer{padding:48px 5% 18px;background:
+linear-gradient(180deg,rgba(0,0,0,.7),#030303),
+radial-gradient(circle at 50% 0,rgba(255,191,31,.07),transparent 35%);}
+.footer-main{display:grid;grid-template-columns:1.2fr 1fr 1fr;align-items:center;gap:30px}
+.footer-brand{display:flex;align-items:center;gap:16px}
+.footer-brand img{width:95px;border-radius:50%}
+.footer-brand h2{font-size:1.5rem;font-style:italic}.footer-brand p{color:#bbb;font-size:.8rem;margin-top:5px}
+.footer-center{text-align:center}.footer-center small{color:#bbb;font-size:.68rem;letter-spacing:1px}.footer-number{font-size:1.55rem;font-weight:900;color:var(--gold);margin-top:5px}
+.footer-social{text-align:right;font-size:1.6rem;letter-spacing:10px}
+.copy{text-align:center;border-top:1px solid #171717;margin-top:35px;padding-top:14px;color:#666;font-size:.62rem;letter-spacing:1px}
+@media(max-width:950px){
+.menu{gap:15px}.hero{grid-template-columns:1fr;min-height:680px}.hero-side{display:none}.products,.feature-grid{grid-template-columns:repeat(2,1fr)}.category-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+nav{padding:0 4%;height:66px}.menu{display:none}.brand img{width:48px;height:48px}
+.hero{min-height:570px}.gold-ring{width:82vw}.hero-logo{width:78%}
+.category-row{padding:10px;gap:10px}.category{height:135px;padding:13px}
+section{padding:52px 4%}.products,.feature-grid{grid-template-columns:1fr}.product-img{height:360px;aspect-ratio:auto}
+.benefits{grid-template-columns:repeat(2,1fr)}.benefit{justify-content:flex-start;padding:17px 12px}
+.footer-main{grid-template-columns:1fr;text-align:center}.footer-brand{justify-content:center}.footer-social{text-align:center}
+.section-head{align-items:flex-start;flex-direction:column;gap:14px}
+}
+
+.coming-soon{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;padding:25px;border:1px solid #252525;background:linear-gradient(145deg,#0a0a0a,#111);text-align:center;border-radius:12px;position:relative;overflow:hidden}.coming-soon:before{content:"B&M";position:absolute;font-size:5rem;font-style:italic;font-weight:900;color:rgba(255,255,255,.025);transform:rotate(-10deg)}.coming-soon .coming-icon{font-size:2rem;margin-bottom:10px;position:relative}.coming-soon h3{margin:0;font-size:1rem;letter-spacing:.8px;position:relative}.coming-soon p{margin:8px 0 0;color:var(--gold);font-size:.72rem;font-weight:800;letter-spacing:2px;position:relative}.catalog-status{border:1px solid #252525;background:linear-gradient(145deg,#080808,#101010);padding:28px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;gap:20px}.catalog-status .status-copy h3{margin:0 0 7px;font-size:1.35rem}.catalog-status .status-copy p{margin:0;color:var(--muted)}.status-pill{display:inline-flex;padding:8px 12px;border:1px solid var(--gold);color:var(--gold);font-size:.68rem;font-weight:900;letter-spacing:1.5px;margin-bottom:10px}.catalog-status .cta-small{display:inline-block;padding:12px 18px;border:1px solid var(--gold);color:var(--gold);font-weight:900;font-size:.72rem;letter-spacing:1px;border-radius:6px}.catalog-status .cta-small:hover{background:var(--gold);color:#000}@media(max-width:600px){.catalog-status{flex-direction:column;align-items:flex-start}}
+.hoodies-section{border-top:1px solid #1d1d1d;background:linear-gradient(180deg,#050505 0%,#090909 100%)}
+.hoodies-section .section-title{letter-spacing:-.5px}
+.hoodies-section .products{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:950px){.hoodies-section .products{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.hoodies-section .products{grid-template-columns:1fr}}
+
+/* Presentación adaptable del logo original: conserva la imagen oficial y su nitidez */
+.hero-center{display:flex;align-items:center;justify-content:center;min-width:0}
+.gold-ring{flex-shrink:0}
+@media(max-width:768px){.gold-ring{width:min(78vw,390px);padding:clamp(16px,4vw,26px)}.hero-logo{width:100%;height:100%;object-fit:contain}}
+@media(max-width:420px){.gold-ring{width:76vw;padding:15px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<nav>
+ <a href="#inicio" class="brand"><img src="/.netlify/images?url=/img/logo-bm-district.png&w=150&q=90" alt="B&M District"><div class="brand-text">B&M<br>DISTRICT</div></a>
+ <div class="menu">
+  <a class="active" href="#inicio">INICIO</a><a href="#catalogo">CATÁLOGO</a><a href="#categorias">CATEGORÍAS</a><a href="#nosotros">NOSOTROS</a><a href="#contacto">CONTACTO</a>
+ </div>
+ <div class="icons"><span>◎</span><span>♪</span><a href="https://wa.me/573189398381" target="_blank">◉</a><span>⌕</span></div>
+</nav>
+
+<header class="hero" id="inicio">
+ <div class="hero-side">
+   <div class="left-title">STREETWEAR<span>CON ACTITUD</span></div>
+   <p>ROPA URBANA • ACCESORIOS • ESTILO<br>PARA LOS QUE HACEN LA DIFERENCIA.</p>
+   <a class="cta" href="#catalogo">VER CATÁLOGO&nbsp; →</a>
+ </div>
+ <div class="hero-center">
+  <div class="gold-ring"><img class="hero-logo" src="/.netlify/images?url=/img/logo-bm-district.png&w=700&q=90" alt="B&M District Urban Wear"></div>
+ </div>
+ <div class="hero-side hero-right">
+  <img class="mini-logo" src="/.netlify/images?url=/img/logo-bm-district.png&w=260&q=90" alt="B&M District Urban Wear">
+  <div class="crown">♛</div>
+  <h3>MÁS QUE ROPA,<br><span>ES UN ESTILO</span><br>DE VIDA.</h3>
+ </div>
+</header>
+
+<div class="category-row" id="categorias">
+ <a class="category" href="#sudaderas"><div class="watermark">B&M</div><div class="cat-icon">🧥</div><b>SUDADERAS →</b><small>DISPONIBLES <span>AHORA</span></small></a>
+ <a class="category" href="#camisetas-proximamente"><div class="watermark">B&M</div><div class="cat-icon">👕</div><b>CAMISETAS →</b><small><span>PRÓXIMAMENTE</span></small></a>
+ <a class="category" href="#relojes-proximamente"><div class="watermark">⌚</div><div class="cat-icon">⌚</div><b>RELOJES →</b><small><span>PRÓXIMAMENTE</span></small></a>
+ <a class="category" href="#gorras-proximamente"><div class="watermark">🧢</div><div class="cat-icon">🧢</div><b>GORRAS →</b><small><span>PRÓXIMAMENTE</span></small></a>
+</div>
+
+<section id="sudaderas" class="hoodies-section">
+ <div class="section-head">
+  <div><div class="section-title">SUDADERAS <span>♛</span></div><div class="subtitle">STREETWEAR · CONFORT · ACTITUD</div></div>
+  <a class="see-all" href="#sudaderas">VER SUDADERAS <span>→</span></a>
+ </div>
+ <div class="products">
+  <article class="product" data-cat="sudaderas">
+   <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span><img src="/.netlify/images?url=/img/nike-tech-roja.png&w=900&q=90" alt="NIKE TECH ROJA" draggable="false"></div>
+   <div class="product-info"><h3>NIKE TECH ROJA</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20ROJA%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a></div>
+  </article>
+  <article class="product" data-cat="sudaderas">
+   <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span><img src="/.netlify/images?url=/img/nike-tech-gris.png&w=900&q=90" alt="NIKE TECH GRIS" draggable="false"></div>
+   <div class="product-info"><h3>NIKE TECH GRIS</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20GRIS%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a></div>
+  </article>
+  <article class="product" data-cat="sudaderas">
+   <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span><img src="/.netlify/images?url=/img/nike-tech-negra.png&w=900&q=90" alt="NIKE TECH NEGRA" draggable="false"></div>
+   <div class="product-info"><h3>NIKE TECH NEGRA</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20NEGRA%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a></div>
+  </article>
+  <article class="product" data-cat="sudaderas">
+   <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span><img src="/.netlify/images?url=/img/nike-tech-azul-blanco.png&w=900&q=90" alt="NIKE TECH AZUL/BLANCO" draggable="false"></div>
+   <div class="product-info"><h3>NIKE TECH AZUL/BLANCO</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20AZUL%2FBLANCO%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a></div>
+  </article>
+  <article class="product" data-cat="sudaderas">
+   <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span><img src="/.netlify/images?url=/img/nike-tech-silver-roja.png&w=900&q=90" alt="NIKE TECH SILVER ROJA" draggable="false"></div>
+   <div class="product-info"><h3>NIKE TECH SILVER ROJA</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20SILVER%20ROJA%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a></div>
+
+  <article class="product" data-cat="sudaderas">
+   <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span><img src="/.netlify/images?url=/img/nike-tech-silver-azul-ice.png&w=900&q=90" alt="NIKE TECH SILVER AZUL ICE" draggable="false"></div>
+   <div class="product-info"><h3>NIKE TECH SILVER AZUL ICE</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20SILVER%20AZUL%20ICE%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a></div>
+  </article>
+
+  </article>
+ 
+  <article class="product" data-cat="sudaderas">
+   <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span><img src="/.netlify/images?url=/img/nike-tech-gris-blanco.png&w=900&q=90" alt="NIKE TECH GRIS/BLANCO" draggable="false"></div>
+   <div class="product-info"><h3>NIKE TECH GRIS/BLANCO</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20GRIS%2FBLANCO%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a></div>
+  </article>
+
+  <article class="product" data-cat="sudaderas">
+   <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span><img src="/.netlify/images?url=/img/nike-tech-silver-gris.png&w=900&q=90" alt="NIKE TECH SILVER GRIS" draggable="false"></div>
+   <div class="product-info"><h3>NIKE TECH SILVER GRIS</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20SILVER%20GRIS%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a></div>
+  </article>
+
+  <article class="product" data-cat="sudaderas">
+   <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span><img src="/.netlify/images?url=/img/nike-tech-ninja-roja.png&w=900&q=90" alt="NIKE TECH NINJA ROJA" draggable="false"></div>
+   <div class="product-info"><h3>NIKE TECH NINJA ROJA</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div><a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20NINJA%20ROJA%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a></div>
+  </article>
+   <article class="product" data-cat="sudaderas">
+    <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' ' ){event.preventDefault();openProductImage(this.querySelector('img'))}">
+      <span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span>
+      <img src="/.netlify/images?url=/img/nike-tech-ninja-gris.png&w=900&q=90" alt="NIKE TECH NINJA GRIS" draggable="false">
+    </div>
+    <div class="product-info"><h3>NIKE TECH NINJA GRIS</h3><div class="price">$130.000</div><div class="sizes">TALLAS: M, L, XL</div>
+      <a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20NIKE%20TECH%20NINJA%20GRIS%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a>
+    </div>
+   </article>
+   <article class="product">
+    <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span>
+      <img src="/.netlify/images?url=/img/jordan-shadow-black.png&w=900&q=90" alt="JORDAN SHADOW BLACK" draggable="false">
+    </div>
+    <div class="product-info"><h3>JORDAN SHADOW BLACK</h3><div class="price">$120.000</div><div class="sizes">TALLAS: M, L, XL</div>
+      <a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20JORDAN%20SHADOW%20BLACK%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a>
+    </div>
+   </article>
+   <article class="product">
+    <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span>
+      <img src="/.netlify/images?url=/img/jordan-red-flight.png&w=900&q=90" alt="JORDAN RED FLIGHT" draggable="false">
+    </div>
+    <div class="product-info"><h3>JORDAN RED FLIGHT</h3><div class="price">$120.000</div><div class="sizes">TALLAS: M, L, XL</div>
+      <a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20JORDAN%20RED%20FLIGHT%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a>
+    </div>
+   </article>
+   <article class="product">
+    <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span>
+      <img src="/.netlify/images?url=/img/jordan-cement-grey.png&w=900&q=90" alt="JORDAN CEMENT GREY" draggable="false">
+    </div>
+    <div class="product-info"><h3>JORDAN CEMENT GREY</h3><div class="price">$120.000</div><div class="sizes">TALLAS: M, L, XL</div>
+      <a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20JORDAN%20CEMENT%20GREY%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a>
+    </div>
+   </article>
+   <article class="product">
+    <div class="product-img product-photo" role="button" tabindex="0" onclick="openProductImage(this.querySelector('img'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductImage(this.querySelector('img'))}"><span class="shine"></span><span class="zoom-hint">⌕ VER EN GRANDE</span>
+      <img src="/.netlify/images?url=/img/jordan-red-black.jpg&w=900&q=90" alt="JORDAN RED BLACK" draggable="false">
+    </div>
+    <div class="product-info"><h3>JORDAN RED BLACK</h3><div class="price">$120.000</div><div class="sizes">TALLAS: M, L, XL</div>
+      <a class="wa-btn" target="_blank" rel="noopener" href="https://wa.me/573189398381?text=Hola%20B%26M%20District%2C%20quiero%20el%20JORDAN%20RED%20BLACK%20talla%20M/L/XL">◉ &nbsp; PEDIR POR WHATSAPP</a>
+    </div>
+   </article>
+
+</div>
+</section>
+
+<section id="catalogo">
+ <div class="section-head">
+  <div><div class="section-title">CATÁLOGO <span>♛</span></div><div class="subtitle">PRIMERA COLECCIÓN · B&M DISTRICT</div></div>
+  <a class="see-all" href="#sudaderas">VER SUDADERAS <span>→</span></a>
+ </div>
+ <div class="catalog-status">
+  <div class="status-copy">
+   <div class="status-pill">DISPONIBLE AHORA</div>
+   <h3>SUDADERAS</h3>
+   <p>Estamos cargando nuestra colección real poco a poco. Por ahora, aquí encontrarás únicamente las sudaderas disponibles.</p>
+  </div>
+  <a class="cta-small" href="#sudaderas">VER COLECCIÓN →</a>
+ </div>
+</section>
+
+<section style="padding-top:0">
+ <div class="feature-grid">
+  <div class="feature-card" id="relojes-proximamente"><div class="feature-icon">⌚</div><h3>RELOJES</h3><p>PRÓXIMAMENTE</p></div>
+  <div class="feature-card" id="camisetas-proximamente"><div class="feature-icon">👕</div><h3>CAMISETAS</h3><p>PRÓXIMAMENTE</p></div>
+  <div class="feature-card" id="gorras-proximamente"><div class="feature-icon">🧢</div><h3>GORRAS</h3><p>PRÓXIMAMENTE</p></div>
+  <div class="feature-card"><div class="feature-icon">🛍️</div><h3>MÁS CATEGORÍAS</h3><p>PRÓXIMAMENTE</p></div>
+ </div>
+</section>
+
+<div class="benefits">
+ <div class="benefit"><span class="bicon">▣</span> ENVÍOS A<br>TODO EL PAÍS</div>
+ <div class="benefit"><span class="bicon">♢</span> COMPRA SEGURA<br>POR WHATSAPP</div>
+ <div class="benefit"><span class="bicon">☆</span> PRODUCTOS<br>DE ALTA CALIDAD</div>
+ <div class="benefit"><span class="bicon">◉</span> ATENCIÓN<br>PERSONALIZADA</div>
+</div>
+
+
+
+
+
+<footer id="nosotros">
+ <div class="footer-main">
+  <div class="footer-brand"><img src="/.netlify/images?url=/img/logo-bm-district.png&w=150&q=90" alt="B&M District"><div><h2>B&M DISTRICT</h2><p>Viste diferente.<br>Marca tu estilo.</p></div></div>
+  <div class="footer-center" id="contacto"><small>◉ &nbsp; PEDIDOS POR WHATSAPP</small><div class="footer-number">318 939 8381</div></div>
+  <div class="footer-social">◎ ♪ <a href="https://wa.me/573189398381" target="_blank">◉</a> <span style="color:var(--gold)">♛</span></div>
+ </div>
+ <div class="copy">B&M DISTRICT © 2026 &nbsp; | &nbsp; TODOS LOS DERECHOS RESERVADOS</div>
+</footer>
+
+</div>
+<script>
+function openProductImage(img){
+  if(!img) return;
+  const modal=document.getElementById('imageModal');
+  const big=document.getElementById('modalProductImage');
+  big.src=img.currentSrc || img.src;
+  big.alt=img.alt || 'Producto B&M District';
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('modal-open');
+}
+function closeProductImage(event){
+  if(event && event.target !== document.getElementById('imageModal') && !event.target.classList.contains('close-modal')) return;
+  const modal=document.getElementById('imageModal');
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('modal-open');
+  document.getElementById('modalProductImage').src='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    const modal=document.getElementById('imageModal');
+    if(modal.classList.contains('open')) closeProductImage({target:modal});
+  }
+});
+function filterProducts(cat,button){
+ document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+ if(button) button.classList.add('active');
+ document.querySelectorAll('.product').forEach(card=>{
+  card.style.display=(cat==='all'||card.dataset.cat===cat)?'block':'none';
+ });
+}
+</script>
+<div class="image-modal" id="imageModal" aria-hidden="true" onclick="closeProductImage(event)"><button class="close-modal" type="button" aria-label="Cerrar" onclick="closeProductImage(event)">×</button><div class="modal-image-wrap"><img id="modalProductImage" src="" alt="Producto en grande"></div></div>
+</body>
+</html>
