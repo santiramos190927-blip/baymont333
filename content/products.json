@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "name": "JORDAN RED BLACK",
+      "price": 120000,
+      "sizes": "M, L, XL",
+      "image": "",
+      "description": "Sudadera Jordan Red Black",
+      "available": true
+    }
+  ]
+}
