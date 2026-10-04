@@ -371,5 +371,134 @@ function filterProducts(cat,button){
 }
 </script>
 <div class="image-modal" id="imageModal" aria-hidden="true" onclick="closeProductImage(event)"><button class="close-modal" type="button" aria-label="Cerrar" onclick="closeProductImage(event)">×</button><div class="modal-image-wrap"><img id="modalProductImage" src="" alt="Producto en grande"></div></div>
-</body>
+<script>
+(async function () {
+  try {
+    const response = await fetch('/contenido/productos.json?nocache=' + Date.now());
+    const data = await response.json();
+
+    if (!Array.isArray(data.products)) return;
+
+    const container = document.querySelector('#sudaderas .products');
+    if (!container) return;
+
+    data.products.forEach(product => {
+      if (product.available === false) return;
+
+      const article = document.createElement('article');
+      article.className = 'product';
+      article.dataset.cat = 'sudaderas';
+
+      const price = Number(product.price || 0).toLocaleString('es-CO');
+
+      article.innerHTML = `
+        <div class="product-img product-photo">
+          <span class="shine"></span>
+          <span class="zoom-hint">⌕ VER EN GRANDE</span>
+          <img src="${product.image}" alt="${product.name}" draggable="false">
+        </div>
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <div class="price">$${price}</div>
+          <div class="sizes">TALLAS: ${product.sizes || 'Consultar'}</div>
+          <a class="wa-btn" target="_blank" rel="noopener"
+             href="https://wa.me/573019419828?text=${encodeURIComponent('Hola B&M District, quiero el ' + product.name)}">
+             ◉ &nbsp; PEDIR POR WHATSAPP
+          </a>
+        </div>
+      `;
+
+      container.appendChild(article);
+    });
+  } catch (error) {
+    console.error('Error cargando productos:', error);
+  }
+})();
+</script><script>
+(async function () {
+  try {
+    const response = await fetch('/contenido/productos.json?nocache=' + Date.now());
+    const data = await response.json();
+
+    if (!Array.isArray(data.products)) return;
+
+    const container = document.querySelector('#sudaderas .products');
+    if (!container) return;
+
+    data.products.forEach(product => {
+      if (product.available === false) return;
+
+      const article = document.createElement('article');
+      article.className = 'product';
+      article.dataset.cat = 'sudaderas';
+
+      const price = Number(product.price || 0).toLocaleString('es-CO');
+
+      article.innerHTML = `
+        <div class="product-img product-photo">
+          <span class="shine"></span>
+          <span class="zoom-hint">⌕ VER EN GRANDE</span>
+          <img src="${product.image}" alt="${product.name}" draggable="false">
+        </div>
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <div class="price">$${price}</div>
+          <div class="sizes">TALLAS: ${product.sizes || 'Consultar'}</div>
+          <a class="wa-btn" target="_blank" rel="noopener"
+             href="https://wa.me/573019419828?text=${encodeURIComponent('Hola B&M District, quiero el ' + product.name)}">
+             ◉ &nbsp; PEDIR POR WHATSAPP
+          </a>
+        </div>
+      `;
+
+      container.appendChild(article);
+    });
+  } catch (error) {
+    console.error('Error cargando productos:', error);
+  }
+})();
+</script><script>
+(async function () {
+  try {
+    const response = await fetch('/contenido/productos.json?nocache=' + Date.now());
+    const data = await response.json();
+
+    if (!Array.isArray(data.products)) return;
+
+    const container = document.querySelector('#sudaderas .products');
+    if (!container) return;
+
+    data.products.forEach(product => {
+      if (product.available === false) return;
+
+      const article = document.createElement('article');
+      article.className = 'product';
+      article.dataset.cat = 'sudaderas';
+
+      const price = Number(product.price || 0).toLocaleString('es-CO');
+
+      article.innerHTML = `
+        <div class="product-img product-photo">
+          <span class="shine"></span>
+          <span class="zoom-hint">⌕ VER EN GRANDE</span>
+          <img src="${product.image}" alt="${product.name}" draggable="false">
+        </div>
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <div class="price">$${price}</div>
+          <div class="sizes">TALLAS: ${product.sizes || 'Consultar'}</div>
+          <a class="wa-btn" target="_blank" rel="noopener"
+             href="https://wa.me/573019419828?text=${encodeURIComponent('Hola B&M District, quiero el ' + product.name)}">
+             ◉ &nbsp; PEDIR POR WHATSAPP
+          </a>
+        </div>
+      `;
+
+      container.appendChild(article);
+    });
+  } catch (error) {
+    console.error('Error cargando productos:', error);
+  }
+})();
+</script></body>
 </html>
