@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "available": true,
+      "name": "GOOD SPEDD",
+      "price": 70000,
+      "sizes": "M,L,Xl",
+      "image": "/images/products/163099.jpg",
+      "description": "550 DE GRAMAJE EN PIEDRERIA"
+    }
+  ]
+}
