@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  identity_url: https://baymlntdtc333.netlify.app/.netlify/identity
   branch: principal
 
 media_folder: "images/products"
