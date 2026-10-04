@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: santiramos190927-blip/baymont333
+  branch: principal
+
+media_folder: "images/products"
+public_folder: "/images/products"
+
+collections:
+  - name: "products"
+    label: "Productos"
+    files:
+      - file: "contenido/productos.json"
+        label: "Catálogo"
+        name: "products"
+        fields:
+          - label: "Productos"
+            name: "products"
+            widget: "list"
+            fields:
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Precio", name: "price", widget: "number"}
+              - {label: "Tallas", name: "sizes", widget: "string"}
+              - {label: "Imagen", name: "image", widget: "image"}
+              - {label: "Descripción", name: "description", widget: "string"}
+              - {label: "Disponible", name: "available", widget: "boolean", default: true}
