@@ -2,9 +2,113 @@
   "products": [
     {
       "available": true,
+      "name": "NIKE TECH ROJA",
+      "price": 130000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/nike-tech-roja.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "NIKE TECH GRIS",
+      "price": 130000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/nike-tech-gris.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "NIKE TECH NEGRA",
+      "price": 130000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/nike-tech-negra.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "NIKE TECH AZUL/BLANCO",
+      "price": 130000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/nike-tech-azul-blanco.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "NIKE TECH SILVER ROJA",
+      "price": 130000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/nike-tech-silver-roja.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "NIKE TECH SILVER AZUL ICE",
+      "price": 130000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/nike-tech-silver-azul-ice.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "NIKE TECH GRIS/BLANCO",
+      "price": 130000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/nike-tech-gris-blanco.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "NIKE TECH SILVER GRIS",
+      "price": 130000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/nike-tech-silver-gris.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "NIKE TECH NINJA GRIS",
+      "price": 130000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/nike-tech-ninja-gris.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "JORDAN SHADOW BLACK",
+      "price": 120000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/jordan-shadow-black.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "JORDAN RED FLIGHT",
+      "price": 120000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/jordan-red-flight.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "JORDAN CEMENT GREY",
+      "price": 120000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/jordan-cement-grey.png&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
+      "name": "JORDAN RED BLACK",
+      "price": 120000,
+      "sizes": "M,L,XL",
+      "image": "/.netlify/images?url=/img/jordan-red-black.jpg&w=900&q=90",
+      "description": ""
+    },
+    {
+      "available": true,
       "name": "GOOD SPEDD",
       "price": 70000,
-      "sizes": "M,L,Xl",
+      "sizes": "M,L,XL",
       "image": "/images/products/163099.jpg",
       "description": "550 DE GRAMAJE EN PIEDRERIA"
     }
