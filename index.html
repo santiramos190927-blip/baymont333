@@ -457,5 +457,77 @@ function filterProducts(cat,button){
     console.error('Error cargando productos:', error);
   }
 })();
+</script><script>
+(async function () {
+  try {
+    const response = await fetch('/contenido/productos.json?nocache=' + Date.now());
+    const data = await response.json();
+
+    const container = document.querySelector('#sudaderas .products');
+    if (!container || !Array.isArray(data.products)) return;
+
+    // Borra los productos escritos directamente en el HTML
+    // y deja solamente los administrados desde el panel.
+    container.innerHTML = '';
+
+    data.products.forEach(function (product) {
+      if (product.available === false) return;
+
+      const article = document.createElement('article');
+      article.className = 'product';
+      article.dataset.cat = 'sudaderas';
+
+      const price = Number(product.price || 0).toLocaleString('es-CO');
+
+      article.innerHTML = `
+        <div class="product-img product-photo"
+             role="button"
+             tabindex="0">
+          <span class="shine"></span>
+          <span class="zoom-hint">⌕ VER EN GRANDE</span>
+          <img src="${product.image}"
+               alt="${product.name}"
+               draggable="false">
+        </div>
+
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <div class="price">$${price}</div>
+          <div class="sizes">TALLAS: ${product.sizes || 'Consultar'}</div>
+
+          <a class="wa-btn"
+             target="_blank"
+             rel="noopener"
+             href="https://wa.me/573019419828?text=${encodeURIComponent('Hola B&M District, quiero el ' + product.name)}">
+             ◉ &nbsp; PEDIR POR WHATSAPP
+          </a>
+        </div>
+      `;
+
+      const photo = article.querySelector('.product-photo');
+      const img = article.querySelector('img');
+
+      photo.addEventListener('click', function () {
+        if (typeof openProductImage === 'function') {
+          openProductImage(img);
+        }
+      });
+
+      photo.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          if (typeof openProductImage === 'function') {
+            openProductImage(img);
+          }
+        }
+      });
+
+      container.appendChild(article);
+    });
+
+  } catch (error) {
+    console.error('Error cargando productos:', error);
+  }
+})();
 </script></body>
 </html>
