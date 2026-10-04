@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: santiramos190927-blip/baymont333
+  name: git-gateway
   branch: principal
 
 media_folder: "images/products"
