@@ -1,6 +1,5 @@
 backend:
   name: git-gateway
-  identity_url: https://baymlntdtc333.netlify.app/.netlify/identity
   branch: main
 
 media_folder: "images/products"
@@ -10,9 +9,9 @@ collections:
   - name: "products"
     label: "Productos"
     files:
-      - name: "catalog"
+      - file: "contenido/productos.json"
         label: "Catálogo"
-        file: "contenido/productos.json"
+        name: "products"
         fields:
           - label: "Productos"
             name: "products"
@@ -21,7 +20,7 @@ collections:
               - { label: "Nombre", name: "name", widget: "string" }
               - { label: "Precio", name: "price", widget: "number" }
               - { label: "Tallas", name: "sizes", widget: "string" }
-              - { label: "Foto", name: "image", widget: "image", required: false }
-              - { label: "Descripción", name: "description", widget: "string", required: false }
-              - { label: "Categoría", name: "category", widget: "select", options: ["sudaderas", "camisas"], default: "sudaderas" }
+              - { label: "Imagen", name: "image", widget: "image" }
+              - { label: "Descripción", name: "description", widget: "string" }
+              - { label: "Categoría", name: "category", widget: "select", options: ["sudaderas", "camisas", "pantalones"], default: "sudaderas" }
               - { label: "Disponible", name: "available", widget: "boolean", default: true }
